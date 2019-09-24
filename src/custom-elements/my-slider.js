@@ -9,13 +9,12 @@ export class MySlider extends HTMLElement {
     }
 
     attributeChangedCallback(name, oldValue, newValue) {
-
         const list = newValue.split(',');
         this.setElements(list);
     }
 
     setElements(list) {
-        const div = document.createElement('div')
+        const div = document.createElement('div');
         const fragment = document.createDocumentFragment();
         const img = document.createElement('img');
 
@@ -25,7 +24,7 @@ export class MySlider extends HTMLElement {
             clone.style.cssText = 'width: 640px;height:480px; object-fit: cover;';
             clone.classList.add('my-slider');
             fragment.appendChild(clone);
-        })
+        });
 
         div.appendChild(fragment);
 
@@ -42,29 +41,29 @@ export class MySlider extends HTMLElement {
         leftArrow.style.cssText = `font-size: 80px; font-weight: 700;
          color: white; position: absolute; top: 125px; left: 20px; cursor: pointer`;
         rightArrow.style.cssText = `font-size: 80px; font-weight: 700;
-         color: white; position: absolute; top: 125px; right: 20px; cursor: pointer`
+         color: white; position: absolute; top: 125px; right: 20px; cursor: pointer`;
 
         this.appendChild(leftArrow);
         this.appendChild(rightArrow);
 
-        this.style.cssText = `width:640px; height: 480px; margin: 50px auto;position: relative; overflow: hidden;`;
+        this.style.cssText = 'width:640px; height: 480px; margin: 50px auto;position: relative; overflow: hidden;';
 
         let position = 0;
 
-        rightArrow.onclick = function () {
-            position = position + 640;
+        rightArrow.onclick = function moveRight() {
+            position += 640;
             if (position > ((list.length - 1) * 640)) {
-                position = 0
+                position = 0;
             }
-            div.style.right = position + 'px';
+            div.style.right = `${position}px`;
         };
 
-        leftArrow.onclick = function () {
-            position = position - 640;
+        leftArrow.onclick = function moveLeft() {
+            position -= 640;
             if (position < 0) {
-                position = ((list.length - 1) * 640)
-            };
-            div.style.right = position + 'px';
-        }
+                position = ((list.length - 1) * 640);
+            }
+            div.style.right = `${position}px`;
+        };
     }
 }

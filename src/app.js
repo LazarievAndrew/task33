@@ -16,6 +16,6 @@ const imgsForSlider = [
 function setSlider(list) {
     const listElement = document.querySelector('my-slider');
     listElement.setAttribute('url-list', list);
-};
+}
 
 setSlider(imgsForSlider);
