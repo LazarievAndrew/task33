@@ -65,6 +65,6 @@ export class MySlider extends HTMLElement {
                 position = ((list.length - 1) * 640)
             };
             div.style.right = position + 'px';
-        };
+        }
     }
-};
+}
