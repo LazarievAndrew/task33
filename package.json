@@ -5,7 +5,9 @@
   "scripts": {
     "start": "webpack-dev-server --config ./build/webpack.config.js",
     "build": "set NODE_ENV=production&&webpack --config ./build/webpack.config.js --mode=production",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint ./src",
+    "lint:fix": "eslint --fix ./src"
   },
   "author": "",
   "license": "ISC",
